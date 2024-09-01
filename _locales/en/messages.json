@@ -1,0 +1,47 @@
+{
+   "localization": {
+      "message": "en"
+   },
+   "app_description": {
+      "message": "Customisable hotkeys for basic browser actions."
+   },
+   "opt_input_placeholder": {
+      "message": "Disable"
+   },
+   "opt_input_tooltip": {
+      "message": "Clear input field for disable"
+   },
+   "opt_btn_save_settings": {
+      "message": "Save"
+   },
+   "opt_btn_save_settings_process": {
+      "message": "Saving..."
+   },
+   "opt_btn_save_settings_processed": {
+      "message": "Saved!"
+   },
+   "opt_legend_settings_transfer": {
+      "message": "Settings transfer:"
+   },
+   "opt_btn_import_settings": {
+      "message": "Import"
+   },
+   "opt_prompt_import_settings": {
+      "message": "Not access in pop-up!\nOpen setting page?"
+   },
+   "opt_alert_import_successfully": {
+      "message": "Settings imported successfully!"
+   },
+   "opt_btn_export_settings": {
+      "message": "Export"
+   },
+   "opt_btn_reset_settings": {
+      "message": "Reset"
+   },
+   "opt_prompt_reset_settings": {
+      "message": "Reset all settings to default?"
+   },
+   "opt_btn_save_settings_tooltip": {
+      "message": "Opened tabs don't change"
+   }
+}

@@ -1,0 +1,142 @@
+/* const getPreferredTheme = () => window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches ? 'dark' : 'light';
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyPreferredTheme); */
+
+:root {
+   /* --bg: #1c1c1c;
+   --bg: oldlace;
+   --fg: slategrey; */
+   /* --scrollbar-bg: white; */
+   /* --input-bg: white; */
+   --input-bg: #fdfdfd;
+   --input-border: #ccc;
+   --checkbox-bg: #27a6e5;
+   --btn-bg: rgb(153, 140, 140);
+   --btn-fg: white;
+   --li-item: #e0e0e0;
+   /* --li-item: #ffffff14; */
+   --hr: #B7B7B7;
+   --href: #00b7fc;
+   /* --href: #68cbf8; */
+
+   --plugins-before: slategrey;
+   --plugins-section-hover: silver;
+   --label1: inherit;
+   --label1: #343a45;
+}
+
+/* turn on dark mode by default */
+@media (prefers-color-scheme:dark) {
+   :root {
+      --bg: #1c1c1c;
+      --fg: #97a0a8;
+      /* --scrollbar-bg: #1a1a1a; */
+      --input-bg: #171717;
+      --input-border: #2d2d2d;
+      --checkbox-bg: #188cc3;
+      /* --li-item: #353535; */
+      --li-item: #303030;
+      --hr: #3d3d3d;
+      --btn-bg: #3e3e3e;
+
+      --plugins-before: #D5DDE5;
+      --plugins-section-hover: #303030;
+      --label1: inherit;
+      --label2: #8c8b8b;
+   }
+}
+
+
+body {
+   background-color: var(--bg);
+   color: var(--fg);
+   /* -webkit-filter: invert(100%); */
+}
+
+/* gray background */
+body:after {
+   bottom: 0;
+   box-shadow: inset 0 0 378px 119px rgba(0, 0, 0, .10);
+   content: ' ';
+   display: block;
+   left: 0;
+   pointer-events: none;
+   position: fixed;
+   right: 0;
+   top: 0;
+   z-index: 1000;
+}
+
+a {
+   /* color: #3d3d3d; */
+   color: var(--href);
+}
+
+hr {
+   border-width: 0;
+   border-top: 1px solid var(--hr);
+}
+
+button, input, select, textarea {
+   background-color: var(--input-bg);
+   border: 1px solid var(--input-border);
+}
+
+/* button, [type=submit], [type=reset], input[type=button] {
+   background-color: var(--btn-bg);
+   color: var(--btn-fg);
+} */
+
+/* :is(button, [type=submit], [type=reset], input[type=button]):hover { chrome >=88 */
+button:hover,
+[type=submit]:hover,
+[type=reset]:hover,
+input[type=button]:hover {
+   background-color: var(--href);
+   color: var(--btn-fg);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+   width: 10px;
+   height: 8px;
+}
+
+/* ::-webkit-scrollbar-thumb { background-color: #ccc; } */
+/* beautify ignore:start */
+::-webkit-scrollbar-thumb        { background-color: #bbb; }
+::-webkit-scrollbar-thumb:hover  { background-color: #aaa; }
+::-webkit-scrollbar-thumb:active { background-color: #888; }
+::-webkit-scrollbar-track        { background-color: #ddd; }
+/* beautify ignore:end */
+
+/* ::-webkit-scrollbar-button:single-button {
+   background-color: radial-gradient(circle at center, #333 40%, var(--scrollbar-bg) 0)
+}
+
+::-webkit-scrollbar-button:single-button:hover {
+   background-color: radial-gradient(circle at center, #444 40%, var(--scrollbar-bg) 0)
+}
+
+::-webkit-scrollbar-button:single-button:active {
+   background-color: radial-gradient(circle at center, #555 40%, var(--scrollbar-bg) 0)
+} */
+
+::-webkit-scrollbar-button:single-button {
+   display: none;
+}
+
+::-webkit-resizer {
+   background-color: var(--input-bg) linear-gradient(-45deg, transparent 3px, #888 0, #888 4px, transparent 0, transparent 6px, #888 0, #888 7px, transparent 0) no-repeat;
+   border: 2px solid transparent
+}
+
+/* beautify ignore:start */
+@media (prefers-color-scheme:dark) {
+   body:after { display: none; }
+   ::-webkit-scrollbar-thumb        { background-color: #555; }
+   ::-webkit-scrollbar-thumb:hover  { background-color: #888; }
+   ::-webkit-scrollbar-thumb:active { background-color: #ccc; }
+   ::-webkit-scrollbar-track        { background-color: #222; }
+   /* ::-webkit-scrollbar-track:hover { background-color: #444; } */
+}
+/* beautify ignore:end */
