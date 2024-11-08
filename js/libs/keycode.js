@@ -53,13 +53,16 @@ function handleHotkeyInput() {
     * @param {object} evt - Keyboard event object
    */
    function setShortcut(evt) {
+      // Prevent the default action of the event
+      evt.preventDefault();
+
+      // if the key is being held down and ignore subsequent events
+      if (evt.repeat) return;
+
       const input = evt.target;
 
       // Set the input value to the current pressed shortcut
       input.value = getPressedShortcut(evt);
-
-      // Prevent the default action of the event
-      evt.preventDefault();
    };
 
    /**

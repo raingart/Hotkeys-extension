@@ -14,7 +14,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',appl
    --btn-fg: white;
    --li-item: #e0e0e0;
    /* --li-item: #ffffff14; */
-   --hr: #B7B7B7;
+   --separator: #B7B7B7;
    --href: #00b7fc;
    /* --href: #68cbf8; */
 
@@ -35,7 +35,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',appl
       --checkbox-bg: #188cc3;
       /* --li-item: #353535; */
       --li-item: #303030;
-      --hr: #3d3d3d;
+      --separator: #3d3d3d;
       --btn-bg: #3e3e3e;
 
       --plugins-before: #D5DDE5;
@@ -73,7 +73,7 @@ a {
 
 hr {
    border-width: 0;
-   border-top: 1px solid var(--hr);
+   border-top: 1px solid var(--separator);
 }
 
 button, input, select, textarea {

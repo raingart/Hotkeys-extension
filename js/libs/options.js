@@ -89,15 +89,21 @@ const PopulateForm = {
                console.error('showOrHide not found:', parentElement);
                continue;
             }
-            const parentValue = parentElement.checked || parentElement.value;
+            const parentValue = parentElement.checked
+               || (parentElement.selectedOptions && [...parentElement.selectedOptions].map(x => x.value)) // options-multiple (Warning! before ".value")
+               || parentElement.value;
 
             let shouldHide = true;
+
             (Array.isArray(values) ? values : [values]) // conver all values to array
                .some(ruleValue => {
                   ruleValue = ruleValue.toString();
-                  if (ruleValue.startsWith('!')
-                     ? parentValue?.toString() !== ruleValue.slice(1) // inverted
-                     : parentValue?.toString() === ruleValue
+                  if (parentElement.selectedOptions
+                     ? parentValue.includes(ruleValue.startsWith('!') ? ruleValue.slice(1) : ruleValue) // options-multiple
+                     // non options-multiple
+                     : ruleValue.startsWith('!')
+                        ? parentValue?.toString() !== ruleValue.slice(1) // inverted
+                        : parentValue?.toString() === ruleValue
                   ) {
                      shouldHide = false;
                      return true; // Stop searching within the current value array.

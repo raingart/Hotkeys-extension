@@ -1,4 +1,4 @@
-﻿function docLoad() {
+﻿function pageLoaded() {
    // let  hotkeysEnabled = true;
 
    const Scroll = {
@@ -9,7 +9,7 @@
       smoothScroll({ moment, direction }) {
          let startTime;
 
-         requestAnimationFrame(scroll);
+         const scrollInterval = requestAnimationFrame(scroll);
 
          function scroll(currentTime = performance.now()) {
             if (!startTime) startTime = currentTime;
@@ -20,6 +20,7 @@
             scrollApply({ 'distance': distance, 'direction': direction });
 
             if (progress < 1) requestAnimationFrame(scroll);
+            else cancelAnimationFrame(scrollInterval);
          }
 
          function scrollApply({ distance, direction = 'vertical' }) {
@@ -64,19 +65,19 @@
 
    const TabControl = {
       newTab() {
-         chrome.runtime.sendMessage({ action: 'newTab' });
+         browser.runtime.sendMessage({ action: 'newTab' });
       },
       closeTab() {
-         chrome.runtime.sendMessage({ action: 'closeTab' });
+         browser.runtime.sendMessage({ action: 'closeTab' });
       },
       undoCloseTab() {
-         chrome.runtime.sendMessage({ action: 'undoCloseTab' });
+         browser.runtime.sendMessage({ action: 'undoCloseTab' });
       },
       previousTab() {
-         chrome.runtime.sendMessage({ action: 'previousTab' });
+         browser.runtime.sendMessage({ action: 'previousTab' });
       },
       nextTab() {
-         chrome.runtime.sendMessage({ action: 'nextTab' });
+         browser.runtime.sendMessage({ action: 'nextTab' });
       },
       historyBack() {
          history.back();
@@ -131,4 +132,4 @@
    // }
 }
 
-window.addEventListener('load', docLoad, { capture: true, once: true });
+window.addEventListener('load', pageLoaded, { capture: true, once: true });
